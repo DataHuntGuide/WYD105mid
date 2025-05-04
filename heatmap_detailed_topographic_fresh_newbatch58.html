@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fd6940118529751819d0803faf8e154d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@master/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_fd6940118529751819d0803faf8e154d" ></div>
+        
+    
+            <div style="position: fixed; top: 90px; left: 10px; z-index: 9999;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Compass_rose_pale.svg/120px-Compass_rose_pale.svg.png" style="width:50px;">
+            </div>
+            
+</body>
+<script>
+    
+    
+            var map_fd6940118529751819d0803faf8e154d = L.map(
+                "map_fd6940118529751819d0803faf8e154d",
+                {
+                    center: [44.93, -109.28],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_fd6940118529751819d0803faf8e154d);
+
+            
+
+        
+    
+            var tile_layer_01d62742cd26d09e0dd449e4f6141528 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "Tiles \u00a9 Esri \u0026mdash; Source: USGS, NOAA", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_fd6940118529751819d0803faf8e154d);
+        
+    
+            var heat_map_5e322b2050b82ed6e516af09575ef8bc = L.heatLayer(
+                [[44.95747, -109.58125], [44.96041, -109.203], [44.96041, -109.203], [44.95127, -109.18914], [44.93992, -109.2048], [44.93119, -109.20732], [44.89094, -109.18905], [44.92145, -109.18451], [44.9201, -109.18419]],
+                {"blur": 15, "maxZoom": 18, "minOpacity": 0.3, "radius": 30}
+            ).addTo(map_fd6940118529751819d0803faf8e154d);
+        
+    
+            var map = map_fd6940118529751819d0803faf8e154d;
+            map.on('click', function(e) {
+                L.popup()
+                 .setLatLng(e.latlng)
+                 .setContent('Lat: ' + e.latlng.lat.toFixed(5) + '<br>Lon: ' + e.latlng.lng.toFixed(5))
+                 .openOn(map);
+            });
+            
+</script>
+</html>
